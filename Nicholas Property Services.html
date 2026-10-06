@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nicholas Property Services — Book property care online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Newsreader:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#faf9f6; --linen:#f1eee9; --hair:#dedbd6; --ink:#111; --iron:#414141; --smoke:#6b6b6b;
+  --card:#fff; --btn:#000; --btn-ink:#fff; --accent:#0007cb; --err:#b3261e;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:'Newsreader',Georgia,'Source Serif Pro',serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:#141311; --linen:#1c1b18; --hair:#34322e; --ink:#f3f1ed; --iron:#c9c6c0; --smoke:#9a968f;
+  --card:#1f1e1b; --btn:#f3f1ed; --btn-ink:#111; --accent:#8d92ff; --err:#ff8a80;}}
+:root[data-theme="dark"]{
+  --canvas:#141311; --linen:#1c1b18; --hair:#34322e; --ink:#f3f1ed; --iron:#c9c6c0; --smoke:#9a968f;
+  --card:#1f1e1b; --btn:#f3f1ed; --btn-ink:#111; --accent:#8d92ff; --err:#ff8a80;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:400 16px/1.5 var(--sans);letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--smoke)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--canvas);border-bottom:1px solid var(--hair)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:400;font-size:17px;letter-spacing:-.02em;text-decoration:none}
+.nav nav{display:flex;align-items:center;gap:24px;font-size:14px}
+.nav nav a{text-decoration:none;color:var(--iron)}
+.nav nav a:hover{color:var(--ink)}
+.nav nav a.btn,.nav nav a.btn:hover{color:var(--btn-ink);font-weight:500;padding:12px 20px}
+.btn{display:inline-block;font:400 14px/1 var(--sans);padding:14px 18px;border-radius:4px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-ink);text-decoration:none;cursor:pointer;transition:opacity .15s}
+.btn:hover{opacity:.82}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
+.btn.ghost:hover{border-color:var(--ink);opacity:1}
+@media(max-width:640px){.nav nav a.hide-sm{display:none}}
+
+/* hero */
+.hero{padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,96px)}
+h1{font-weight:300;font-size:clamp(44px,8.2vw,88px);line-height:.98;letter-spacing:-.045em;margin:0;max-width:11ch}
+.hero-row{display:flex;gap:48px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+.hero p{font:300 19px/1.45 var(--serif);color:var(--iron);max-width:380px;margin:0 0 24px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* services */
+section{padding:clamp(56px,8vw,96px) 0}
+h2{font-weight:300;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-.035em;margin:12px 0 0}
+.sec-head{display:flex;justify-content:space-between;gap:32px;align-items:flex-end;flex-wrap:wrap;margin-bottom:40px}
+.sec-head p{font:300 17px/1.45 var(--serif);color:var(--iron);max-width:360px;margin:0}
+.list{border-top:1px solid var(--hair)}
+details{border-bottom:1px solid var(--hair)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 24px;gap:24px;align-items:center;padding:24px 0}
+summary::-webkit-details-marker{display:none}
+summary .name{font-weight:300;font-size:clamp(24px,3.2vw,32px);letter-spacing:-.03em;line-height:1.15}
+summary .blurb{display:block;font-size:14px;color:var(--smoke);letter-spacing:0;margin-top:4px}
+summary .plus{width:14px;height:14px;position:relative;justify-self:end}
+summary .plus::before,summary .plus::after{content:"";position:absolute;background:var(--ink);inset:6px 0 auto 0;height:1.5px;transition:transform .2s}
+summary .plus::after{transform:rotate(90deg)}
+details[open] .plus::after{transform:rotate(0)}
+.body{display:grid;grid-template-columns:1fr 1fr;gap:32px 64px;padding:0 0 32px;animation:open .25s ease}
+@keyframes open{from{opacity:0}to{opacity:1}}
+.body p{font:300 17px/1.5 var(--serif);color:var(--iron);margin:0 0 20px;max-width:46ch}
+.body ul{margin:0;padding:0;list-style:none}
+.body li{padding:10px 0;border-top:1px solid var(--hair);font-size:15px;color:var(--iron);display:flex;gap:12px}
+.body li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px}
+.body .label{display:block;margin-bottom:8px}
+@media(max-width:760px){.body{grid-template-columns:1fr}summary{grid-template-columns:1fr 24px}summary .label{display:none}}
+
+.group{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);padding:40px 0 12px;border-bottom:1px solid var(--hair)}
+.group:first-child{padding-top:0}
+.err textarea{border-color:var(--err)}
+/* booking */
+#book{background:var(--linen)}
+.book-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px 80px;align-items:start}
+.book-grid>div>p{font:300 17px/1.5 var(--serif);color:var(--iron);margin:20px 0 0;max-width:36ch}
+.steps{margin:32px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--hair);font-size:15px;color:var(--iron)}
+.steps li::before{content:counter(s);font:500 12px/1.9 var(--mono);color:var(--smoke)}
+form,.done{background:var(--card);border:1px solid var(--hair);border-radius:4px;padding:clamp(20px,3vw,32px)}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f .full{grid-column:1/-1}
+label{display:block;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);margin-bottom:6px}
+input,select,textarea{width:100%;font:400 16px/1.4 var(--sans);color:var(--ink);background:var(--canvas);border:1px solid var(--hair);border-radius:4px;padding:12px;letter-spacing:-.01em}
+input:hover,select:hover,textarea:hover{border-color:var(--smoke)}
+textarea{min-height:88px;resize:vertical}
+.err input,.err select{border-color:var(--err)}
+.msg{display:none;color:var(--err);font-size:13px;margin-top:4px}
+.err .msg{display:block}
+.submit{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.note{font-size:13px;color:var(--smoke);max-width:36ch}
+.done{display:none}
+.done h3{font-weight:300;font-size:32px;letter-spacing:-.03em;margin:0 0 8px}
+.done dl{margin:24px 0;display:grid;grid-template-columns:auto 1fr;gap:0 24px}
+.done dt{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);padding:10px 0;border-top:1px solid var(--hair)}
+.done dd{margin:0;padding:8px 0;border-top:1px solid var(--hair);font-size:15px}
+@media(max-width:860px){.book-grid{grid-template-columns:1fr}.f{grid-template-columns:1fr}}
+
+footer{padding:48px 0 56px;border-top:1px solid var(--hair)}
+.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot a{display:block;font-weight:300;font-size:24px;letter-spacing:-.03em;text-decoration:none;margin-top:6px}
+.foot a:hover{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#top">Nicholas Property Services</a>
+  <nav><a class="hide-sm" href="#services">Services</a><a class="hide-sm" href="tel:+16477813617">647-781-3617</a><a class="btn" href="#book">Book now</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <div class="hero-row">
+    <h1>Property care, booked in a minute.</h1>
+    <div>
+      <p>Lawn, snow, cleaning and building work for your home. Pick a service, choose a day, and we’ll confirm the details with you.</p>
+      <div class="actions"><a class="btn" href="#book">Book a service</a><a class="btn ghost" href="#services">See what’s included</a></div>
+    </div>
+  </div>
+</div>
+
+<section id="services" style="padding-top:0"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="label">Nine services, plus custom requests</span><h2>What we do</h2></div>
+    <p>Open any service to see exactly what you’re getting. Need something not listed? Just ask. Pricing is always confirmed before work starts.</p>
+  </div>
+  <div class="list" id="list"></div>
+</div></section>
+
+<section id="book"><div class="wrap book-grid">
+  <div>
+    <span class="label">Book online</span>
+    <h2>Choose a service and a day</h2>
+    <p>Tell us where and when. We’ll confirm your time and give you a price before we start.</p>
+    <ol class="steps">
+      <li>Pick your service and preferred date.</li>
+      <li>Add your address and contact details.</li>
+      <li>Send it. We reply to confirm the booking.</li>
+    </ol>
+  </div>
+  <div>
+    <form id="form" novalidate>
+      <div class="f">
+        <div class="full" data-f><label for="service">Service</label><select id="service" required></select><div class="msg">Choose a service.</div></div>
+        <div data-f><label for="date">Preferred date</label><input id="date" type="date" required><div class="msg">Choose a date from tomorrow onward.</div></div>
+        <div><label for="time">Time of day</label><select id="time"><option>Flexible</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–5pm)</option></select></div>
+        <div class="full"><label for="freq">How often</label><select id="freq"><option>One-time</option><option>Recurring (add details below)</option></select></div>
+        <div data-f><label for="name">Full name</label><input id="name" autocomplete="name" required><div class="msg">Enter your name.</div></div>
+        <div data-f><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel" required><div class="msg">Enter a phone number.</div></div>
+        <div class="full" data-f><label for="email">Email</label><input id="email" type="email" autocomplete="email" required><div class="msg">Enter a valid email.</div></div>
+        <div class="full" data-f><label for="addr">Property address</label><input id="addr" autocomplete="street-address" required><div class="msg">Enter the property address.</div></div>
+        <div class="full" id="nw"><label for="notes" id="nl">Notes (optional)</label><textarea id="notes" placeholder="Gate codes, size of area, anything we should know"></textarea><div class="msg">Describe the service you need so we can confirm we can help.</div></div>
+      </div>
+      <div class="submit"><button class="btn" type="submit">Place booking</button><span class="note">This opens an email to us with your details. Press send to complete the booking.</span></div>
+    </form>
+    <div class="done" id="done" role="status" tabindex="-1">
+      <h3>One last step: send the email</h3>
+      <p style="color:var(--iron);margin:0">Your email app should have opened with the booking details filled in. Press send and we’ll confirm with you.</p>
+      <dl id="sum"></dl>
+      <div class="actions"><a class="btn" id="again" href="#">Open email again</a><a class="btn ghost" href="tel:+16477813617">Call 647-781-3617</a><button class="btn ghost" id="new" type="button">Start a new booking</button></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap foot">
+  <div><span class="label">Call or text</span><a href="tel:+16477813617">647-781-3617</a></div>
+  <div><span class="label">Email</span><a href="mailto:nicholass5099@gmail.com">nicholass5099@gmail.com</a></div>
+</div></footer>
+
+<script>
+const S=[
+{n:"Lawn maintenance",s:"Spring–Fall",b:"Regular mowing and tidy edges.",d:"Keep your lawn neat on a schedule that suits you, weekly or every two weeks, or as a one-off cut.",i:["Mowing at a healthy grass height","String trimming along fences, beds and trees","Edging of driveways and walkways","Clippings blown off hard surfaces"]},
+{n:"Bin cleaning",s:"",b:"Garbage, recycling and compost bins, washed.",d:"A deep clean to remove grime, bacteria and smells, done on your bin day or any day that suits.",i:["Hot-water wash inside and out","Sanitizer and deodorizer","Lids and handles scrubbed","Bins returned to where we found them"]},
+{n:"Snow removal",s:"Winter",b:"Cleared driveways, walkways and steps.",d:"Wake up to a safe, clear property. Book a single visit or ask about seasonal service in the notes.",i:["Driveway plowed or shoveled","Walkways, porch and steps cleared","Path to the street and bins cleared","De-icing salt on request"]},
+{n:"General labour",s:"",b:"Extra hands for any property task.",d:"Hourly help for the jobs that don’t fit anywhere else. Describe the job and we’ll confirm time and cost first.",i:["Hauling and yard junk removal","Loading, unloading and moving items","Digging, clearing and site clean-up","Small demolition and prep work"]},
+{n:"Hardscaping",s:"Spring–Fall",b:"Walkways, patios, steps and simple concrete.",d:"Small-scale outdoor builds and repairs. We review the site first and give a fixed quote.",i:["Excavation and compacted gravel base","Interlock, paver or stone installation","Simple concrete work: pads, steps, borders","Repairs to sunken or uneven surfaces"]},
+{n:"Power washing",s:"Spring–Fall",b:"Driveways, patios, decks and siding.",d:"Restore tired surfaces with pressure suited to the material, so it cleans without damaging.",i:["Driveways, walkways and patios","Decks, fences and siding","Moss, algae, dirt and stains","Rinse-down of the surrounding area"]},
+{n:"Leaf removal",s:"Fall",b:"Lawns and beds cleared and hauled away.",d:"A full fall clean-up so leaves don’t smother your lawn over winter.",i:["Raking and blowing of lawn and beds","Leaves bagged or loaded for removal","Hard surfaces swept clear","One-time or repeat visits"]},
+{n:"Mulching",s:"Spring",b:"Fresh mulch for healthier, tidier beds.",d:"Cleaner beds that hold moisture and keep weeds down. Mulch is supplied; tell us your colour preference.",i:["Beds cleared of debris and weeds","Edges defined","2–3 inches of mulch spread evenly","Kept clear of trunks and stems"]},
+{n:"Sod laying",s:"Spring &amp; Fall",b:"New sod over bare or worn areas.",d:"Replace patchy lawn with fresh, ready-to-grow turf. We prepare the ground so the sod takes root.",i:["Old turf and weeds removed","Soil graded and prepared","Sod laid tight with staggered seams","Rolled, with a watering guide for after"]},
+{n:"Something else",o:"Something else (custom request)",s:"On request",b:"Not listed? Ask us.",btn:"Request a service",d:"We take on other property jobs on request. Describe what you need in the notes and we’ll tell you if we can help, and what it would cost.",i:["Describe the job in the booking notes","We confirm whether we can do it","Price agreed before any work starts"]}];
+const G=[["Spring",["Mulching","Sod laying"]],["Spring to fall",["Lawn maintenance","Power washing","Hardscaping"]],["Fall",["Leaf removal"]],["Winter",["Snow removal"]],["Year-round",["Bin cleaning","General labour"]],["Anything else",["Something else"]]];
+const list=document.getElementById('list'),sel=document.getElementById('service');
+const ord=G.flatMap(g=>g[1].map(n=>S.find(x=>x.n===n)));
+sel.innerHTML='<option value="">Select a service</option>'+ord.map(x=>`<option value="${x.n}">${x.o||x.n}</option>`).join('');
+ord.forEach((x,k)=>{const d=document.createElement('details');
+d.innerHTML=`<summary><span><span class="name">${x.n}</span><span class="blurb">${x.b}</span></span><span class="plus" aria-hidden="true"></span></summary>
+<div class="body"><div><p>${x.d}</p><button class="btn" type="button" data-s="${x.n}">${x.btn||'Book '+x.n.toLowerCase()}</button></div>
+<div><span class="label">What’s included</span><ul>${x.i.map(i=>`<li>${i}</li>`).join('')}</ul></div></div>`;
+list.appendChild(d)});
+list.addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;sel.value=b.dataset.s;sel.dispatchEvent(new Event('change'));
+document.getElementById('book').scrollIntoView();setTimeout(()=>document.getElementById('date').focus({preventScroll:true}),400)});
+
+const date=document.getElementById('date'),t=new Date();t.setDate(t.getDate()+1);
+const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);date.min=iso(t);
+sel.addEventListener('change',()=>{const o=sel.value==='Something else';$('nl').textContent=o?'Describe the service you need':'Notes (optional)';$('notes').placeholder=o?'What do you need done, and where on the property?':'Gate codes, size of area, anything we should know'});
+const form=document.getElementById('form'),done=document.getElementById('done');let mailto='';
+const $=id=>document.getElementById(id);
+form.addEventListener('submit',e=>{e.preventDefault();let bad=null;
+form.querySelectorAll('[data-f]').forEach(w=>{const i=w.querySelector('input,select');
+const ok=i.value.trim()&&i.checkValidity()&&(i.type!=='date'||i.value>=date.min);w.classList.toggle('err',!ok);if(!ok&&!bad)bad=i});
+const other=sel.value==='Something else';const nw=$('nw');const nb=other&&!$('notes').value.trim();nw.classList.toggle('err',nb);if(nb&&!bad)bad=$('notes');
+if(bad){bad.focus();return}
+const dt=new Date($('date').value+'T12:00:00').toLocaleDateString('en-CA',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+const rows=[['Service',$('service').value],['Date',dt],['Time',$('time').value],['Frequency',$('freq').value],['Name',$('name').value.trim()],['Phone',$('phone').value.trim()],['Email',$('email').value.trim()],['Address',$('addr').value.trim()],['Notes',$('notes').value.trim()||'None']];
+const body='New booking request\n\n'+rows.map(r=>r[0]+': '+r[1]).join('\n');
+mailto='mailto:nicholass5099@gmail.com?subject='+encodeURIComponent('Booking: '+$('service').value+' on '+dt)+'&body='+encodeURIComponent(body);
+const sum=$('sum');sum.textContent='';rows.forEach(r=>{const a=document.createElement('dt'),b=document.createElement('dd');a.textContent=r[0];b.textContent=r[1];sum.append(a,b)});
+$('again').href=mailto;form.style.display='none';done.style.display='block';done.focus();done.scrollIntoView({block:'center'});
+window.location.href=mailto});
+$('new').onclick=()=>{form.reset();done.style.display='none';form.style.display='block';sel.focus()};
+</script>
+</body>
+</html>
